@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My test page</title>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <link href="styles/style.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div class="header">
+      <img id="logo" src="logo.png"  >
+      <p>Lodge.</p>
+      
+    </div>
+      <form id="invoice_form" action="" method="post">
+        <label for="desc">Service Description:</label>
+        <input type="text" id="desc" name="desc"><br><br>
+        <label for="cost">Cost ($):</label>
+        <input type="number" id="cost" name="cost"><br><br>
+        <label>Customers:</label>
+        <select name="customers" id="customers">
+          <option value="Alex's Electronics">Alex's Electronics</option>
+          <option value="Jenny's Autorepair">Jenny's Autorepair</option>
+          <option value="Dan Murphy's">Alex's Electronics</option>
+        </select>
+        <button class="button" type="button" id="create_customer" onclick="showCustomerCreation()" >New Customer</button> 
+
+        <div>
+        
+          <!-- <input list="customers"/></label>
+          <datalist id="customers"> -->
+          
+          <div id="myModal" class="modal">
+            <div class="modal-content">
+              <div id="customer_details">
+                <form>
+                  <label for="customer_name">Customer Name:</label>
+                  <input type="text" id="customer_name" name="customer_name"><br><br>
+                  <label for="email">Email:</label>
+                  <input type="text" id="email" name="email"><br><br>
+                  <label for="street">Street</label>
+                  <input type="text" id="street" name="street"><br><br>
+                  <label for="city">City</label>
+                  <input type="text" id="city" name="city"><br><br>
+                  <label for="country">Country</label>
+                  <input type="text" id="country" name="country"><br><br>
+                  <label for="postcode">Postcode</label>
+                  <input type="text" id="postcode" name="postcode"><br><br>
+                  <button id="save_details" type="button">Save</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <input type="button" id="submit" align="right" onclick="lodge()">
+      </form>
+      
+    <script src="scripts/main.js"></script>
+    <script>
+      var customerVisible = false;
+      function showCustomerCreation() {
+        if (customerVisible) {
+          document.getElementById("myModal").style.display = "none";
+          customerVisible = false;
+        }
+        else {
+          document.getElementById("myModal").style.display = "block";
+          customerVisible = true;
+        }
+      }
+  </script>
+
+  </body>
+
+</html>
