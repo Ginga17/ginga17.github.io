@@ -38,6 +38,10 @@ body {
   margin-top: 13%;
 }
 
+#back {
+  padding: 1%;
+}
+
 form {
   margin-bottom: 4%;
 }
@@ -88,6 +92,10 @@ button {
   color: #ffffff;
 }
 
+#history_header {
+  margin-top: 0%;
+}
+
 #save_details {
   color: black;
   background-color: white;
@@ -100,8 +108,8 @@ button {
   margin-bottom: 5%;
   padding: 12px;
   position: absolute;
-  left: 50%;
-  top: 16%;
+  left: 33%;
+  top: 40%;
   transform: translate(-50%, -50%); 
   border: 1px solid #888;
   background-color: rgb(241,90,37);
@@ -111,6 +119,7 @@ button {
 }
 
 #history_header {
+  margin-top: 0%;
   align-items: center;
 }
 

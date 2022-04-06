@@ -2,15 +2,16 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>My test page</title>
+    <title>Invoice history</title>
     <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
     <link href="styles/style.css" rel="stylesheet" type="text/css">
   </head>
   <body>
     <div class="header">
       <img id="logo" src="logo.png"  >
-      <p>For freelance.</p>
-      
+      <p id="history_header">For freelance.</p>
+      <button id="back" onclick="history.back()">Back</button>
+
     </div>
       <h1 id="history_header" >History</h1>
       <div id="invoices"></div>

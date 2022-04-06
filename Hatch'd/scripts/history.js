@@ -1,6 +1,6 @@
 
 async function getToken() {
-    var resp = fetch("https://3snk1mux67.execute-api.ap-southeast-2.amazonaws.com/InvoiceStorage/auth/login?username=Frontend&password=Roo$ter100", {
+    fetch("https://3snk1mux67.execute-api.ap-southeast-2.amazonaws.com/InvoiceStorage/auth/login?username=Frontend&password=Roo$ter100", {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
             mode: 'cors', // no-cors, *cors, same-origin
             cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
@@ -13,7 +13,6 @@ async function getToken() {
             
         })
         .then(response => response.json())
-        // .then(data => token = data.token)
         .then(data => data.token)
         .then(data => getInvoices(data));
         // return token;
@@ -79,7 +78,6 @@ function displayInvoices(invoices, token) {
 
 async function getInvoices(token) {
     // await getToken();
-    console.log("JNASKNA " + token);
     fetch("https://3snk1mux67.execute-api.ap-southeast-2.amazonaws.com/InvoiceStorage/invoices?token=" + token, {
         method: 'GET', // *GET, POST, PUT, DELETE, etc.
         mode: 'cors', // no-cors, *cors, same-origin
