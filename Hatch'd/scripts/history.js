@@ -33,7 +33,47 @@ function getInvoice (invoice) {
 function downloadXML(xmltext, invoiceName) {
     var filename = invoiceName + ".xml";
     var pom = document.createElement('a');
-    var bb = new Blob([xmltext], {type: 'text/plain'});
+    ppp = `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+    <Invoice xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cec="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2">
+       <cbc:UBLVersionID>2.1</cbc:UBLVersionID>
+       <cbc:IssueDate>2022-02-07</cbc:IssueDate>
+       <cac:AccountingSupplierParty>
+             <cac:PartyName>
+                <cbc:Name>Ebusiness Software Services Pty Ltd</cbc:Name>
+             </cac:PartyName>
+             <cac:PostalAddress>
+                <cbc:StreetName>100 Business St</cbc:StreetName>
+                <cbc:CityName>Dulwich Hill</cbc:CityName>
+                <cbc:PostalZone>2203</cbc:PostalZone>
+                <cac:Country>
+                   <cbc:IdentificationCode listAgencyID="6" listID="ISO3166-1:Alpha2">AU</cbc:IdentificationCode>
+                </cac:Country>
+             </cac:PostalAddress>
+       </cac:AccountingSupplierParty>
+       <cac:AccountingCustomerParty>
+          <cac:Party>
+             <cac:PartyName>
+                <cbc:Name>Jenny's Autorepair</cbc:Name>
+             </cac:PartyName>
+             <cac:PostalAddress>
+                <cbc:StreetName>12 High Street</cbc:StreetName>
+                <cbc:CityName>Kensington</cbc:CityName>
+                <cbc:PostalZone>2033</cbc:PostalZone>
+                <cac:Country>
+                   <cbc:IdentificationCode listAgencyID="6" listID="ISO3166-1:Alpha2">AU</cbc:IdentificationCode>
+                </cac:Country>
+             </cac:PostalAddress>
+          </cac:Party>
+       </cac:AccountingCustomerParty>
+       <cac:LegalMonetaryTotal>
+          <cbc:LineExtensionAmount currencyID="AUD">100.00</cbc:LineExtensionAmount>
+          <cbc:TaxExclusiveAmount currencyID="AUD">100.00</cbc:TaxExclusiveAmount>
+          <cbc:TaxInclusiveAmount currencyID="AUD">100.00</cbc:TaxInclusiveAmount>
+          <cbc:PayableRoundingAmount currencyID="AUD">0.00</cbc:PayableRoundingAmount>
+          <cbc:PayableAmount currencyID="AUD">100.00</cbc:PayableAmount>
+       </cac:LegalMonetaryTotal>
+    </Invoice>`
+    var bb = new Blob([ppp], {type: 'text/plain'});
     
     pom.setAttribute('href', window.URL.createObjectURL(bb));
     pom.setAttribute('download', filename);
