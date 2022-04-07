@@ -23,8 +23,8 @@
         <label>Customers:</label>
         <select name="customers" id="customers">
           <option value="Alex's Electronics">Alex's Electronics</option>
+          <option value="Dan Murphy's">Dan's Designs</option>
           <option value="Jenny's Autorepair">Jenny's Autorepair</option>
-          <option value="Dan Murphy's">Alex's Electronics</option>
         </select>
         <button class="button" type="button" id="create_customer" onclick="showCustomerCreation()" >New Customer</button> 
 
@@ -49,13 +49,13 @@
                   <input type="text" id="country" name="country"><br><br>
                   <label for="postcode">Postcode</label>
                   <input type="text" id="postcode" name="postcode"><br><br>
-                  <button id="save_details" type="button">Save</button>
+                  <button id="save_details" type="button" onclick="showCustomerCreation()">Save</button>
                 </form>
               </div>
             </div>
           </div>
         </div>
-        <div id="lodged_popup">lodged
+        <div id="lodged_popup">lodged invoice 3056426
 
           </div>
         <button type="button" id="submit" onclick="lodge()">Lodge</button>
