@@ -5,11 +5,101 @@ h1 {
   text-align: center;
 }
 
+input[type=text] {
+  /* width: 20%;
+  padding: 6px 12px; */
+  margin: 8px 8px 8px 8px;
+  /* box-sizing: border-box; */
+}
+
+input[type=email] {
+  /* width: 20%;
+  padding: 6px 12px; */
+  margin: 8px 8px 8px 8px;
+  /* box-sizing: border-box; */
+}
+
+input[type=password] {
+  /* width: 20%;
+  padding: 6px 12px; */
+  margin: 8px 8px 8px 8px;
+  /* box-sizing: border-box; */
+}
+
+
+#headerBox {
+  display: flex;
+  align-items: flex-start;
+  margin: 0%;
+  margin-left: 6%;
+  justify-content: center;
+}
+
+.darkModeButt, .empty {
+  flex:0;
+} 
+label {
+  display: inline-block;
+  width: 200px;
+  text-align: right;
+}
+
+.dark-mode {
+  background-color: #121212;
+  color: white;
+}
+
+.light-mode {
+  background-color: white;
+  color: black;
+}
+
+
+.dark-mode-button {
+  background-color: rgb(135, 65, 167);
+  color: white;
+}
+
+:root,
+:root.light {
+  --color-1: rgb(241, 90, 37);
+  --text-color: white;
+  --color-2: rgb(248, 147, 31);
+  --button-hover: rgb(177, 62, 21);
+  --button-hover2: rgb(133, 44, 12);
+  --create-job-but: rgb(194, 39, 45);
+  --create-job-but-hov: rgb(155, 18, 22);
+
+}
+ 
+:root.dark {
+  --color-1: rgb(135, 65, 167);
+  --text-color: white;
+  --color-2: rgb(173,114,200);
+  --button-hover: rgb(98, 38, 126);
+  --button-hover2: rgb(61, 17, 82);
+  /* --create-job-but: rgb(82, 15, 113); */
+  --create-job-but: rgb(83,40,103);
+  
+  --create-job-but-hov: rgb(57, 22, 73);
+
+
+}
+
+#country {
+  width: 170px;
+  margin-left: 0.7%;
+} 
+
+
 p {
   font-family: "Times New Roman", Times, serif;
   text-align: center;
   font-size: 1.5em;
-  margin-top: 2%;
+  margin-top: 0%;
+  margin-left: 60px;
+  margin-right: auto;
+  width: 100%;
 }
 
 #logo {
@@ -24,7 +114,10 @@ body {
   background: white;
   color: black;
   font-family: 'Open Sans', sans-serif;
-  margin: 10px auto;
+  /* margin: 10px auto; */
+  margin-left: 10px;
+
+  margin-right: 10px;
   max-width: 1200px;
   padding: 0 40px;
   align-items: center;
@@ -32,29 +125,53 @@ body {
 
 #buttons {
   flex-direction: column;
-  justify-content: center; 
-  align-items: center;
+  margin-left: 60%;
+    /* margin-top: 5%;
+    margin-bottom: 5%; */
+  /* width: 100%; */
+  /* position: relative; */
+  /* justify-content: center;  */
+  /* align-items: center; */
   display: flex;
-  margin-top: 13%;
+  /* margin-top: 13%; */
+  /* margin-left: 86%;  */
 }
 
-#back {
-  padding: 1%;
+
+.homePageButton {
+  margin: 6%;
+  margin-top: 13%;
+  margin-bottom: 0%;
 }
 
 form {
   margin-bottom: 4%;
 }
 
+.buttonFormHome{
+  margin: 0%;
+}
+
+
 button {
   /* width: 20%;
   height: 30%; */
+  margin-left: 2%;
   margin-bottom: 4%;
   color: white;
-  background-color: rgb(241, 90, 37);
-  font-size: 18px;
+  /* background-color: rgb(241, 90, 37); */
+  background-color: var(--color-1);
+  border-radius: 6px;
+  font-size: 22px;
+  font-weight: 500;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   
 }
+
+button:hover {
+  background-color:var(--button-hover);  
+}
+
 
 #create_customer {
   display: block;
@@ -65,9 +182,63 @@ button {
 }
 
 #invoice_form {
+  margin: 5%;
+  margin-top: 12%;
   display: flexbox;
 }
+#upcomingJobs {
+  text-align: center;
+}
 
+#outerBoard {
+
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border: 2px solid #1b1b1b;
+  padding-top: 0.35%;
+  background-color: var(--color-1);
+  text-align: center;
+  width: 45%;
+  /* height: 50%; */
+  position: fixed;
+  border-radius: 3.5%;
+  /* border: #000000;
+  border-width: 3px; */
+}
+
+.balance2Elements {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-top: 8%;
+  margin-left: 3%;
+  justify-content: space-between;
+  /* margin: 10px 0; */
+}
+
+#columnHeaders {
+  padding: 0%;
+}
+
+#innerBoard {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border: 2px solid #1b1b1b;
+  width: calc(100% - 20px);
+  /* height: calc(100% - 40px);
+   */
+  min-height: 400px;
+  margin: 10px;
+  background-color: var(--color-2);
+  /* border: #000000; */
+  /* border-radius: 3%; */
+  /* border: #000000;
+  border-width: 3px; */
+  /* width: 30%; */
+  /* min-height: 30%; */
+}
 #rooster {
   width: 53%;  
 }
@@ -79,6 +250,7 @@ button {
   top: 18%;
   transform: translate(-50%, -50%);  */
 
+  margin-bottom: 0%;
   border: #000000;
   /* padding: 1%; */
   /* padding-bottom: 0%; */
@@ -92,34 +264,103 @@ button {
   color: #ffffff;
 }
 
-#history_header {
-  margin-top: 0%;
+#customerForm {
+  margin: 0%;
 }
 
 #save_details {
-  color: black;
-  background-color: white;
+  margin-bottom: 0%;
+  
+}
 
+#logintext {
+  /* margin-top: 5%; */
+}
+
+#logbox {
+  text-align: left;
+  color: white;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 18px;
+  font-weight: 560;
+  border-radius: 4px;
+  border: 2px solid black;
+}
+
+#registerBox {
+  background-color: aqua;
+}
+
+.loginTextbox {
+  width: 60%;
+}
+
+#signInHeader{
+  margin-top: 2%;
+  margin-bottom: 0%;
+  margin-left: 3%;
+}
+
+#dontHaveAcct{
+  margin-left: 3%;
+  text-align: left;
+}
+
+#bigBox {
+  width: 100%;
+  margin:0%;
+}
+
+#bird {
+  float: left;
+  width: 50%;
+  margin: 0%;
+}
+
+.leftAlignText {
+  text-align: left;
+}
+
+.loginBox {
+  margin: 0 0;
+  margin-bottom: 5%;
+  margin-top: 12%;
+  border-radius: 6px;
+  text-align: left;
+
+  /* padding: 12px; */
+  width: 40%;
+  float: left;
+  border: 1px solid #888;
+  background-color: var(--color-2);
+  /* rgb(251, 176, 59) */
+  /* background-image: linear-gradient(rgb(251, 176, 59), rgb(248, 147, 31)); */
+  /* rgb(241, 90, 37);
+  --text-color: white;
+  --color-2: rgb(248, 147, 31); */
+  /* align-items: right; */
+  /* width: 40%; Could be more or less, depending on screen size */
+  /* height: 40%; Could be more or less, depending on screen size */
+  /* text-align: center; */
 }
 
 /* Modal Content/Box */
 .modal-content {
   margin: 0 auto;
-  margin-bottom: 5%;
-  padding: 12px;
+  /* margin-bottom: 5%; */
+  padding: 8px;
   position: absolute;
   left: 33%;
   top: 40%;
   transform: translate(-50%, -50%); 
-  border: 1px solid #888;
-  background-color: rgb(241,90,37);
+  border: 2px solid black;
+  background-color: var(--color-2);
   /* width: 40%; Could be more or less, depending on screen size */
   /* height: 40%; Could be more or less, depending on screen size */
   text-align: center;
 }
 
 #history_header {
-  margin-top: 0%;
   align-items: center;
 }
 
@@ -133,14 +374,119 @@ button {
 
 .download_button {
   padding: 1%;
+  width: 30%;
 }
 
 #create_customer {
   padding: 1%;
 }
 
+#create_account{
+  margin-bottom: 0%;
+}
+
+#outerBoard {
+  color: #ffffff;
+  font-size: 25px;
+  font-weight: 200;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.jobEntry {
+  width: 100%;
+  font-size: 20px;
+  font-weight: 200;
+  font-family: "Times New Roman", Times, serif;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: 0%;
+}
+
+.jobNode {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border: 1px solid #1b1b1b;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  background-color: var(--button-hover);
+  margin: 0%;
+  float: left;
+}
+
+/* "dateNode" class="jobNode">24/7</div>
+              <div id="customer_name" class="jobNode">Alex's Electronics</div>
+              <div id="amount" */
+
+#dateNode {
+  width: 15%;
+}
+
+#customer_name {
+  width: 60%;
+}
+
+
+#amount {
+  width: 15%;
+  /* height: 100%; */
+}
+
+#deleteNode {
+  width: 10%;
+  height: 100%;
+  padding:0.25%;
+  padding-top: 0.83%;
+  padding-bottom: 0.83%;
+}
+
+
+#deleteNodeHeader {
+  width: 10%;
+  height: 100%;
+  /* padding:2%; */
+}
+
+#deleteButton {
+  padding-left: 0%;
+  padding-right: 0%;
+  padding-top: 15%;
+  padding-bottom: 15%;
+
+  width: 100%;
+  /* height: 100%; */
+  font-size: 12px;
+  margin: 0%;
+}
+
+#createJobButton {
+  width: 100%;
+  font-size: 20px;
+  border: 1px solid #1b1b1b;
+  border-bottom: 2px solid #1b1b1b;
+  background-color: var(--create-job-but);
+}
+
+#createJobButton:hover {
+  background-color:var(--create-job-but-hov);  
+
+}
+
+
 #submit {
   padding: 1%;
+  margin-left: 15%;
+}
+
+#loginButton {
+  padding: 1%;
+  margin-bottom: 0%;
+}
+
+#loginForm{
+  margin: 5%;
+  /* margin-top: 12%; */
+  display: flexbox;
 }
 
 #lodged_popup {

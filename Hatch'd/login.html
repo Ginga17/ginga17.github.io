@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <link href="styles/style.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+      <div class="header">
+        <div id="headerBox">
+          <img src="moon.png" id="darkModeButt" onclick="toggleDarkMode()">
+        <!-- <input class="darkModeButt" onclick="toggleDarkMode()">
+          <img src="moon.png"></button> -->
+        <img id="logo" src="logo.png"  >
+        <div class="empty"></div>
+      </div>
+      <p>For freelance.</p>
+     </div> 
+      <img id="bird" src="roostertrans.png" align="left" id = "rooster">
+      <div id="logbox" class="loginBox">
+        <h3 id="signInHeader">Sign in</h3>
+        <form id="loginForm" action="" method="post">
+          <label id= "logintext" class="leftAlignText" for="email">Your email:</label>
+          <input type="Email" id="email" class="loginTextbox" name="email">
+          <label for="password" class="leftAlignText"> Password:</label>
+          <input type="password" id="password" class="loginTextbox" name="password"><br>
+          <button type="submit" id="loginButton">Login</button>
+        </form>
+        <label id="dontHaveAcct">Don't have an account?</label>
+        <form action="register.html">
+          <button id="create_account">Create Account</button>
+        </form>
+      </div>
+    <script src="scripts/main.js"></script>
+  </body>
+
+</html>

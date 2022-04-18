@@ -52,15 +52,12 @@ function generateInvoice(customer, price) {
         "SupplierPost": customers[customer]["postcode"],
         "SupplierCountry": customers[customer]["country"],
         "SupplierRegistration": "Ebusiness Software Services Pty Ltd",
-        "SupplierPartyName": "Bob",
-        "CustomerPartyName" : "Patrick",
         "CustomerStreet": "Gate 2, High Street",
         "CustomerAddStreet": "High Street",
         "CustomerCity": "Kensington",
         "CustomerPost": "2140",
         "CustomerCountry": "AU",
         "CustomerRegistration": "Awolako Enterprises Pty Ltd",
-        "DueDate": document.getElementById("duedate"),
         "PaymentType": 1,
         "PaymentID": "EBWASP1002",
         "PaymentTerms": "As agreed",
@@ -89,15 +86,9 @@ function generateInvoice(customer, price) {
 }
 
 function lodge() {
-
-    // console.log("888");
-    // console.log(document.getElementById("duedate").value);
-
     var customerSelect = document.getElementById("customers");
     var selectedCustomer = customerSelect.options[customerSelect.selectedIndex].value;
 
-
-    console.log("lodging");
     fetch('https://seng-donut-deployment.herokuapp.com/json/convert', {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
         mode: 'cors', // no-cors, *cors, same-origin
@@ -111,175 +102,9 @@ function lodge() {
         body: JSON.stringify(generateInvoice(selectedCustomer, document.getElementById("cost").value))
     })
     .then(response => response.text())
-    .then(getToken(data));
-        // .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
-        // .then(data => console.log("kkkl = " + data))
-        // .then(data => getToken(data));
-        // .then(triggerPopup());
-}
-
-function getToken(data) {
-    // console.log("hh " + data);
-    fetch("https://3snk1mux67.execute-api.ap-southeast-2.amazonaws.com/InvoiceStorage/auth/login?username=Frontend&password=Roo$ter100", {
-            method: 'POST', // *GET, POST, PUT, DELETE, etc.
-            mode: 'cors', // no-cors, *cors, same-origin
-            cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-            credentials: 'same-origin', // include, *same-origin, omit
-            headers: {
-            'Content-Type': 'application/json'
-            },
-            redirect: 'follow', // manual, *follow, error
-            referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-            
-        })
-        .then(response => response.json())
-        .then(data => data.token)
-        .then(triggerPopup())
-        // .then(token => storeInvoice(token, data));
-}
-
-
-// xml2 = `<?xml version="1.0" encoding="UTF-8"?>
-// <Invoice xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cec="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2">
-//   <cac:AccountingCustomerParty>
-//     <cac:Party>
-//       <cac:PartyLegalEntity>
-//         <cbc:RegistrationName>Awolako Enterprises Pty Ltd</cbc:RegistrationName>
-//       </cac:PartyLegalEntity>
-//       <cac:PartyName>
-//         <cbc:Name>Patrick</cbc:Name>
-//       </cac:PartyName>
-//       <cac:PostalAddress>
-//         <cac:Country>
-//           <cbc:IdentificationCode>AU</cbc:IdentificationCode>
-//         </cac:Country>
-//         <cbc:AdditionalStreetName>High Street</cbc:AdditionalStreetName>
-//         <cbc:CityName>Kensington</cbc:CityName>
-//         <cbc:PostalZone>2140</cbc:PostalZone>
-//         <cbc:StreetName>Gate 2, High Street</cbc:StreetName>
-//       </cac:PostalAddress>
-//     </cac:Party>
-//   </cac:AccountingCustomerParty>
-//   <cac:AccountingSupplierParty>
-//     <cac:Party>
-//       <cac:PartyIdentification>
-//         <cbc:ID schemeID="0151">80647710156</cbc:ID>
-//       </cac:PartyIdentification>
-//       <cac:PartyLegalEntity>
-//         <cbc:RegistrationName>Ebusiness Software Services Pty Ltd</cbc:RegistrationName>
-//       </cac:PartyLegalEntity>
-//       <cac:PartyName>
-//         <cbc:Name>Bob   </cbc:Name>
-//       </cac:PartyName>
-//       <cac:PostalAddress>
-//         <cac:Country>
-//           <cbc:IdentificationCode>Australia</cbc:IdentificationCode>
-//         </cac:Country>
-//         <cbc:CityName>Sydney</cbc:CityName>
-//         <cbc:StreetName>53 Tech Lane</cbc:StreetName>
-//       </cac:PostalAddress>
-//     </cac:Party>
-//   </cac:AccountingSupplierParty>
-//   <cac:AdditionalDocumentReference>
-//     <cbc:ID>ebwasp1002</cbc:ID>
-//   </cac:AdditionalDocumentReference>
-//   <cac:InvoiceLine>
-//     <cac:Item>
-//       <cac:ClassifiedTaxCategory>
-//         <cac:TaxScheme>
-//           <cbc:ID>GST</cbc:ID>
-//         </cac:TaxScheme>
-//         <cbc:ID>5</cbc:ID>
-//         <cbc:Percent>10</cbc:Percent>
-//       </cac:ClassifiedTaxCategory>
-//       <cbc:Name>Pencils</cbc:Name>
-//     </cac:Item>
-//     <cac:Price>
-//       <cbc:BaseQuantity>1</cbc:BaseQuantity>
-//       <cbc:PriceAmount currencyID="AUD">0.2</cbc:PriceAmount>
-//     </cac:Price>
-//     <cbc:ID>1</cbc:ID>
-//     <cbc:InvoicedQuantity>500</cbc:InvoicedQuantity>
-//     <cbc:LineExtensionAmount currencyID="AUD">100</cbc:LineExtensionAmount>
-//   </cac:InvoiceLine>
-//   <cac:LegalMonetaryTotal>
-//     <cbc:LineExtensionAmount currencyID="AUD">100</cbc:LineExtensionAmount>
-//     <cbc:PayableAmount currencyID="AUD">110</cbc:PayableAmount>
-//     <cbc:PayableRoundingAmount currencyID="AUD">0</cbc:PayableRoundingAmount>
-//     <cbc:TaxExclusiveAmount currencyID="AUD">100</cbc:TaxExclusiveAmount>
-//     <cbc:TaxInclusiveAmount currencyID="AUD">110</cbc:TaxInclusiveAmount>
-//   </cac:LegalMonetaryTotal>
-//   <cac:PaymentMeans>
-//     <cbc:PaymentID>EBWASP1002</cbc:PaymentID>
-//     <cbc:PaymentMeansCode>1</cbc:PaymentMeansCode>
-//   </cac:PaymentMeans>
-//   <cac:PaymentTerms>
-//     <cbc:Note>As agreed</cbc:Note>
-//   </cac:PaymentTerms>
-//   <cac:TaxTotal>
-//     <cac:TaxSubtotal>
-//       <cac:TaxCategory>
-//         <cac:TaxScheme>
-//           <cbc:ID>GST</cbc:ID>
-//         </cac:TaxScheme>
-//         <cbc:ID>S</cbc:ID>
-//         <cbc:Percent>10</cbc:Percent>
-//       </cac:TaxCategory>
-//       <cbc:TaxAmount currencyID="AUD">10</cbc:TaxAmount>
-//       <cbc:TaxableAmount currencyID="AUD">100</cbc:TaxableAmount>
-//     </cac:TaxSubtotal>
-//     <cbc:TaxAmount currencyID="AUD">10</cbc:TaxAmount>
-//   </cac:TaxTotal>
-//   <cbc:BuyerReference>EBWASP1002</cbc:BuyerReference>
-//   <cbc:CustomizationID>urn:cen.eu:en16931:2017#conformant#urn:fdc:peppol.eu:2017:poacc:billing:international:aunz:3.0</cbc:CustomizationID>
-//   <cbc:DocumentCurrencyCode>AUD</cbc:DocumentCurrencyCode>
-//   <cbc:DueDate>2022-04-06</cbc:DueDate>
-//   <cbc:ID>EBWASP1002</cbc:ID>
-//   <cbc:InvoiceTypeCode>380</cbc:InvoiceTypeCode>
-//   <cbc:IssueDate>2022-04-06</cbc:IssueDate>
-//   <cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</cbc:ProfileID>
-//   <cbc:UBLVersionID>2.1</cbc:UBLVersionID>
-// </Invoice>`
-
-// token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo4MTYyNjc1LCJzZXNzaW9uX2lkIjo3OTQ3MzZ9.IxB0I-IXIy5CUZ0bqe7Ghq4tt-SHyK5KSrwfY2nRljM";
-
-// fer = "https://3snk1mux67.execute-api.ap-southeast-2.amazonaws.com/InvoiceStorage/invoice?token=" + token + "&xml_string=" + xml2;
-
-// fer = fer.replace(/[\n\r]/g, '');
-
-// console.log(fer);
-
-// fetch(fer, {
-//             method: 'POST', // *GET, POST, PUT, DELETE, etc.
-//             mode: 'cors', // no-cors, *cors, same-origin
-//             cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-//             credentials: 'same-origin', // include, *same-origin, omit
-//             headers: {
-//             'Content-Type': 'application/json'
-//             },
-//             redirect: 'follow', // manual, *follow, error
-//             referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-//         });
-//         // .then(response => response.json())
-//         // .then(p => console.log("bbbbaaa   " + p));
-
-function storeInvoice(token,xml) {
-    console.log("NASDKNAS")
-    
-    fetch("https://3snk1mux67.execute-api.ap-southeast-2.amazonaws.com/InvoiceStorage/invoice?token=" + token + "&xml_string=" + xml, {
-            method: 'POST', // *GET, POST, PUT, DELETE, etc.
-            mode: 'cors', // no-cors, *cors, same-origin
-            cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-            credentials: 'same-origin', // include, *same-origin, omit
-            headers: {
-            'Content-Type': 'application/json'
-            },
-            redirect: 'follow', // manual, *follow, error
-            referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-        })
-        .then(response => response.json())
-        .then(p => console.log("bbbbaaa   " + p));
-
+        .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+        .then(data => console.log(data))
+        .then(triggerPopup);
 }
 
 function triggerPopup() {
@@ -288,4 +113,173 @@ function triggerPopup() {
     setTimeout(() => {document.getElementById("lodged_popup").style.display = "none"},3000);
     
 }
+
+// <input type="Email" id="email" name="email" width="150px"><br>
+// <label for="password"> Password:</label>
+// <input type="password" id="password" name="password"><br>
+// <label for="business"> Your business name:</label>
+// <input type="text" id="business" name="business"><br>
+// <div>
+//   <label for="street"> Street:</label>
+//   <input type="text" id="street" name="street"><br>
+//   <label for="city"> City:</label>
+//   <input type="text" id="city" name="city"><br>
+//   <label for="address"> Postcode:</label>
+//   <input type="text" pattern="[0-9]{4}" id="postcode" name="postcode"><br>
+//   <label for="country"> Country:</label>
+//   <select id="country
+
+function storeToken(token, user_id) {
+  console.log("kksasMAP");
+  sessionStorage.setItem('hatchdtoken', token);
+  sessionStorage.setItem('user_id', user_id);
+  // Redirect to home page
+  window.location.replace("home.html");
+
+}
+
+function register() {
+  console.log("GGGdd")
+  username = document.getElementById("email").value;
+  password = document.getElementById("password").value;
+  business_name = document.getElementById("business").value;
+  street_address= document.getElementById("street").value;
+  city = document.getElementById("city").value;
+  // country = document.getElementById("country").value;
+  countrySelect = document.getElementById("country");
+  country = countrySelect.options[countrySelect.selectedIndex].value;
+
+  postcode = document.getElementById("postcode").value;
+  
+  console.log("https://gk6qzzv9s6.execute-api.ap-southeast-2.amazonaws.com/hatchd/auth/register?username="+username+"&password="+password+"&business_name="+business_name+"&street_address="+street_address+"&city="+city+"&country="+country+"&postcode="+postcode)
+  fetch("https://gk6qzzv9s6.execute-api.ap-southeast-2.amazonaws.com/hatchd/auth/register?username="+username+"&password="+password+"&business_name="+business_name+"&street_address="+street_address+"&city="+city+"&country="+country+"&postcode="+postcode, {
+            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            mode: 'cors', // no-cors, *cors, same-origin
+            cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: 'same-origin', // include, *same-origin, omit
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            redirect: 'follow', // manual, *follow, error
+            referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        })
+        .then(response => response.json())
+        // .then(data => token = data.token)
+        .then(data=>storeToken(data.token, data.user_id));
+}
+
+function saveCustomer() {
+  console.log("JJJJSSS")
+  email = document.getElementById("email").value;
+  business_name = document.getElementById("new_customer_name").value;
+  street= document.getElementById("street").value;
+  city = document.getElementById("city").value;
+  // country = document.getElementById("country").value;
+  countrySelect = document.getElementById("country");
+  country = countrySelect.options[countrySelect.selectedIndex].value;
+  postcode = document.getElementById("postcode").value;
+
+  token = sessionStorage.getItem('hatchdtoken');
+
+  console.log("https://gk6qzzv9s6.execute-api.ap-southeast-2.amazonaws.com/hatchd/customer?token=" +token+"&business_name="+business_name+"&email="+email+"&street="+street+"&city="+city+"&postcode="+postcode+"&country="+country)
+  fetch("https://gk6qzzv9s6.execute-api.ap-southeast-2.amazonaws.com/hatchd/customer?token=" +token+"&business_name="+business_name+"&email="+email+"&street="+street+"&city="+city+"&postcode="+postcode+"&country="+country, {
+    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+    mode: 'cors', // no-cors, *cors, same-origin
+    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'same-origin', // include, *same-origin, omit
+    headers: {
+    'Content-Type': 'application/json'
+    },
+    redirect: 'follow', // manual, *follow, error
+    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+  });
+
+  // var opt = '<option value="' + business_name + '">' +business_name + '</option>  ';
+  var newCustomer = document.createElement('option');
+  newCustomer.text = business_name;
+  newCustomer.value = business_name;
+  // newCustomer.innerHTML = opt;
+
+  document.getElementById("customersDropDown").add(newCustomer);
+  showCustomerCreation();
+  
+  // <select name="customers" id="customers">
+  //         <option value="Alex's Electronics">Alex's Electronics</option>
+
+
+
+}
+
+function login() {
+  username = document.getElementById("email").value;
+  password = document.getElementById("password").value;
+  business_name = document.getElementById("business").value;
+  street_address= document.getElementById("street").value;
+  city = document.getElementById("city").value;
+  // country = document.getElementById("country").value;
+  countrySelect = document.getElementById("country");
+  country = countrySelect.options[countrySelect.selectedIndex].value;
+
+  postcode = document.getElementById("postcode").value;
+  
+  console.log("https://gk6qzzv9s6.execute-api.ap-southeast-2.amazonaws.com/hatchd/auth/register?username="+username+"&password="+password+"&business_name="+business_name+"&street_address="+street_address+"&city="+city+"&country="+country+"&postcode="+postcode)
+  fetch("https://gk6qzzv9s6.execute-api.ap-southeast-2.amazonaws.com/hatchd/auth/register?username="+username+"&password="+password+"&business_name="+business_name+"&street_address="+street_address+"&city="+city+"&country="+country+"&postcode="+postcode, {
+            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            mode: 'cors', // no-cors, *cors, same-origin
+            cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: 'same-origin', // include, *same-origin, omit
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            redirect: 'follow', // manual, *follow, error
+            referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        })
+        .then(response => response.json())
+        // .then(data => token = data.token)
+        .then(data=>storeToken(data.token, data.user_id));
+}
+
+if(sessionStorage.getItem("darkmode") == "dark") {
+    if(document.getElementById("bird")){
+        document.getElementById("bird").src = "owl2.png";
+    }
+    document.getElementById("logo").src="logoDark.png"
+    document.getElementById("darkModeButt").src="sun.png"
+    darkMode=true;
+    document.body.classList.toggle("dark-mode");
+    document.documentElement.className = 'dark';
+  }
+  else {
+    if(document.getElementById("bird")){
+        document.getElementById("bird").src = "roostertrans.png";
+    }
+    document.getElementById("logo").src="logo.png"
+    document.getElementById("darkModeButt").src="moon.png"
+    document.documentElement.className = 'light';
+    darkMode = false;
+  }
+  function toggleDarkMode() {
+    if(darkMode == false) {
+      sessionStorage.setItem('darkmode', 'dark')
+      if(document.getElementById("bird")){
+        document.getElementById("bird").src = "owl2.png";
+      }
+      document.getElementById("logo").src="logoDark.png"
+      document.getElementById("darkModeButt").src="sun.png"
+      document.documentElement.className = 'dark';
+      darkMode=true;
+    }
+    else {
+      sessionStorage.setItem('darkmode', 'light')
+      darkMode=false;
+      if(document.getElementById("bird")){
+        document.getElementById("bird").src = "roostertrans.png";
+      }
+      document.getElementById("logo").src="logo.png"
+      document.getElementById("darkModeButt").src="moon.png"
+      document.documentElement.className = 'light';
+    }
+    document.body.classList.toggle("dark-mode");
+
+  }
 

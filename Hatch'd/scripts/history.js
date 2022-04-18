@@ -1,6 +1,6 @@
 
 async function getToken() {
-    fetch("https://3snk1mux67.execute-api.ap-southeast-2.amazonaws.com/InvoiceStorage/auth/login?username=Frontend&password=Roo$ter100", {
+    var resp = fetch("https://3snk1mux67.execute-api.ap-southeast-2.amazonaws.com/InvoiceStorage/auth/login?username=Frontend&password=Roo$ter100", {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
             mode: 'cors', // no-cors, *cors, same-origin
             cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
@@ -13,6 +13,7 @@ async function getToken() {
             
         })
         .then(response => response.json())
+        // .then(data => token = data.token)
         .then(data => data.token)
         .then(data => getInvoices(data));
         // return token;
@@ -33,47 +34,7 @@ function getInvoice (invoice) {
 function downloadXML(xmltext, invoiceName) {
     var filename = invoiceName + ".xml";
     var pom = document.createElement('a');
-    ppp = `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-    <Invoice xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cec="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2">
-       <cbc:UBLVersionID>2.1</cbc:UBLVersionID>
-       <cbc:IssueDate>2022-02-07</cbc:IssueDate>
-       <cac:AccountingSupplierParty>
-             <cac:PartyName>
-                <cbc:Name>Ebusiness Software Services Pty Ltd</cbc:Name>
-             </cac:PartyName>
-             <cac:PostalAddress>
-                <cbc:StreetName>100 Business St</cbc:StreetName>
-                <cbc:CityName>Dulwich Hill</cbc:CityName>
-                <cbc:PostalZone>2203</cbc:PostalZone>
-                <cac:Country>
-                   <cbc:IdentificationCode listAgencyID="6" listID="ISO3166-1:Alpha2">AU</cbc:IdentificationCode>
-                </cac:Country>
-             </cac:PostalAddress>
-       </cac:AccountingSupplierParty>
-       <cac:AccountingCustomerParty>
-          <cac:Party>
-             <cac:PartyName>
-                <cbc:Name>Jenny's Autorepair</cbc:Name>
-             </cac:PartyName>
-             <cac:PostalAddress>
-                <cbc:StreetName>12 High Street</cbc:StreetName>
-                <cbc:CityName>Kensington</cbc:CityName>
-                <cbc:PostalZone>2033</cbc:PostalZone>
-                <cac:Country>
-                   <cbc:IdentificationCode listAgencyID="6" listID="ISO3166-1:Alpha2">AU</cbc:IdentificationCode>
-                </cac:Country>
-             </cac:PostalAddress>
-          </cac:Party>
-       </cac:AccountingCustomerParty>
-       <cac:LegalMonetaryTotal>
-          <cbc:LineExtensionAmount currencyID="AUD">100.00</cbc:LineExtensionAmount>
-          <cbc:TaxExclusiveAmount currencyID="AUD">100.00</cbc:TaxExclusiveAmount>
-          <cbc:TaxInclusiveAmount currencyID="AUD">100.00</cbc:TaxInclusiveAmount>
-          <cbc:PayableRoundingAmount currencyID="AUD">0.00</cbc:PayableRoundingAmount>
-          <cbc:PayableAmount currencyID="AUD">100.00</cbc:PayableAmount>
-       </cac:LegalMonetaryTotal>
-    </Invoice>`
-    var bb = new Blob([ppp], {type: 'text/plain'});
+    var bb = new Blob([xmltext], {type: 'text/plain'});
     
     pom.setAttribute('href', window.URL.createObjectURL(bb));
     pom.setAttribute('download', filename);
@@ -118,6 +79,7 @@ function displayInvoices(invoices, token) {
 
 async function getInvoices(token) {
     // await getToken();
+    console.log("JNASKNA " + token);
     fetch("https://3snk1mux67.execute-api.ap-southeast-2.amazonaws.com/InvoiceStorage/invoices?token=" + token, {
         method: 'GET', // *GET, POST, PUT, DELETE, etc.
         mode: 'cors', // no-cors, *cors, same-origin
@@ -134,3 +96,44 @@ async function getInvoices(token) {
     // .then(data => console.log(data))
     .then(data => displayInvoices(data, token));
 }
+
+
+
+if(sessionStorage.getItem("darkmode") == "dark") {
+    if(document.getElementById("bird")){
+        document.getElementById("bird").src = "owl2.png";
+    }
+    document.getElementById("logo").src="logoDark.png"
+    document.getElementById("darkModeButt").src="sun.png"
+    darkMode=true;
+    document.body.classList.toggle("dark-mode");
+    document.documentElement.className = 'dark';
+  }
+  else {
+    if(document.getElementById("bird")){
+        document.getElementById("bird").src = "roostertrans.png";
+    }
+    document.getElementById("logo").src="logo.png"
+    document.getElementById("darkModeButt").src="moon.png"
+    document.documentElement.className = 'light';
+    darkMode = false;
+  }
+  function toggleDarkMode() {
+    if(darkMode == false) {
+      sessionStorage.setItem('darkmode', 'dark')
+      document.getElementById("logo").src="logoDark.png"
+      document.getElementById("darkModeButt").src="sun.png"
+      document.documentElement.className = 'dark';
+      darkMode=true;
+    }
+    else {
+      sessionStorage.setItem('darkmode', 'light')
+      darkMode=false;
+
+      document.getElementById("logo").src="logo.png"
+      document.getElementById("darkModeButt").src="moon.png"
+      document.documentElement.className = 'light';
+    }
+    document.body.classList.toggle("dark-mode");
+
+  }
