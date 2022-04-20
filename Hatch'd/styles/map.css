@@ -42,6 +42,10 @@ h1 {
   justify-content: center;
 }
 
+#mapp{
+  margin-left: 10%;
+}
+
 .darkModeButt, .empty {
   flex:0.2;
 } 

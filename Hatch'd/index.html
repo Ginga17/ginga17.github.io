@@ -33,7 +33,7 @@
             <label for="city"> City:</label>
             <input type="text" id="city" class="registerInput" name="city"><br>
             <label for="address"> Postcode:</label>
-            <input type="text" pattern="[0-9]{4}" class="registerInput" id="postcode" name="postcode"><br>
+            <input type="text" pattern="[0-9]{4}" class="registerInput" id="postcodeFront" name="postcode"><br>
             <label for="country"> Country:</label>
             <select id="country" class="registerInput" width="15px" name="country">
               <option>select country</option>
@@ -290,17 +290,18 @@
               <option value="ZM">Zambia</option>
               <option value="ZW">Zimbabwe</option>
           </select><br><br>
-          <!-- </div> -->
+          <button type="button" id="regSubmit" onclick="register()">Register</button><br><br>
+
+        </form>
 
           
           <!-- street address, postcode, city, country, -->
 
           <!-- <div id="lodged_popup">lodged </div> -->
-          <button type="button" id="regSubmit" onclick="register()">Register</button><br><br>
           <label id="alreadyLabel">Already have an account?</label><br>
-          <form action="login.html" >
-            <button id="goToLoginButton" >Login</button>
-          </form>
+          <!-- <form action="login.html" > -->
+            <button id="goToLoginButton" onclick="goToLogin()">Login</button>
+          <!-- </form> -->
       <!-- </div> -->
     <script src="scripts/main.js"></script>
     <script>function goToLogin() { window.location.replace("login.html"); }</script>

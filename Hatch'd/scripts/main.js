@@ -283,6 +283,7 @@ for (var i = 0; i < jobs.length; i++)
 }
 
 function getFutureJobs() {
+  console.log("asdasd")
 storageToken = sessionStorage.getItem('storage_token')
 fetch('https://gk6qzzv9s6.execute-api.ap-southeast-2.amazonaws.com/hatchd/future_jobs?token=' + storageToken, {
       method: 'GET', // *GET, POST, PUT, DELETE, etc.

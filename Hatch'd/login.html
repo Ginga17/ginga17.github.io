@@ -27,13 +27,14 @@
           <button type="button" id="loginButton" onclick="login()">Login</button><br><br>
 
           <label id="dontHaveAcct">Don't have an account?</label><br>
-          <form action="register.html">
-            <button id="create_account">Create Account</button>
-          </form>
         </form>
+        <button id="create_account" onclick="goToRegister()">Create Account</button>
+
         
       </div>
     <script src="scripts/main.js"></script>
+    <script>function goToRegister() { window.location.replace("index.html"); }</script>
+
   </body>
 
 </html>

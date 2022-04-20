@@ -114,7 +114,7 @@ function displayPastJobs(jobs) {
           
       })
       .then(response => response.text())
-      .then(xml => downloadXML(xml, "Invoice" +invoices[i]));
+      .then(xml => downloadXML(xml, "Invoice" +invoice_id));
     }
     downloadNode.appendChild(downloadBut);
   
