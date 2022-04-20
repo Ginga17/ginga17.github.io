@@ -29,12 +29,13 @@
               <div id="deleteNodeHeader" class="jobNode">Delete</div>
             </div>
             <div id="jobEntries">
-              <!-- <div class="jobEntry">
+              <div class="jobEntry">
                 <div id="dateNode" class="jobNode">24/7/22</div>
                 <div id="customer_name" class="jobNode">Alex's Electronics</div>
                 <div id="amount" class="jobNode">$50</div>
-                <div id="deleteNode" class="jobNode"><button id="deleteButton">Remove</button></div>
+                <div id="deleteNode" class="jobNode"><button id="deleteButton" onclick="deleteEntry(this)">Remove</button></div>
               </div>
+              <!--
               <div class="jobEntry">
                 <div id="dateNode" class="jobNode">5/12/22</div>
                 <div id="customer_name" class="jobNode">Jenny's Mechanic</div>
@@ -65,6 +66,11 @@
         </div>
       </div>
     <script src="scripts/main.js"></script>
+    <script>
+    function deleteEntry(button) {
+      button.parentElement.parentElement.remove()
+    }
+    </script>
     <script>getFutureJobs()</script>
   </body>
 

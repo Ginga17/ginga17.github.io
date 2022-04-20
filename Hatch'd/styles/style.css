@@ -29,12 +29,12 @@ h1 {
   display: flex;
   align-items: flex-start;
   margin: 0%;
-  margin-left: 19%;
+  margin-left: 8%;
   justify-content: center;
 }
 
 .darkModeButt, .empty {
-  flex:0.2;
+  flex:0.1;
 } 
 label {
   display: inline-block;
@@ -112,8 +112,21 @@ label {
 #regSubmit {
   margin-left: 0%;
   margin-right: 30%;
+  margin-bottom: 0%;
   padding: 1%;
 
+}
+#alreadyLabel{
+  margin-right: 17%;
+  font-size: large;
+  width: 30%;
+  margin-bottom: 0.5%;
+}
+
+#goToLoginButton{
+  margin-right: 29%;
+  padding: 1%;
+  padding-top: 0.6%;
 }
 
 p {
@@ -210,6 +223,7 @@ button:hover {
 #customersDropDown{
   margin-right: 12%;
   margin-bottom: 4%;
+  width: 40%;
 }
 
 /* #log_form {
@@ -225,7 +239,7 @@ button:hover {
 
 #register_form {
   margin: 5%;
-  margin-top: 15%;
+  margin-top: 10%;
   margin-right: 0%;
   display: flexbox;
   text-align: right;
@@ -532,6 +546,22 @@ button:hover {
 }
 
 #deleteNode {
+  width: 10%;
+  height: 100%;
+  padding:0.25%;
+  padding-top: 0.83%;
+  padding-bottom: 0.83%;
+}
+
+#downloadNodeHistory {
+  width: 10%;
+  height: 100%;
+  padding:0.25%;
+  padding-top: 0.83%;
+  padding-bottom: 0.83;
+}
+
+#deleteNode2 {
   width: 10%;
   height: 100%;
   padding:0.25%;

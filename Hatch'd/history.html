@@ -9,12 +9,14 @@
   <body>
     <div class="header">
       <div id="headerBox">
-        <img src="moon.png" id="darkModeButt" onclick="toggleDarkMode()">
-        <img id="logo" src="logo.png"  >
-        <div class="empty"></div>
-        <!-- <button class="empty">Logout</div> -->
-
+        <div>
+        <img src="back.png" id="back" width="50" height="50" onclick="history.back();">
+        <img src="moon.png" id="darkModeButt" onclick="toggleDarkMode();">
       </div>
+      <img id="logo" src="logo.png"  >
+      <div class="empty"></div>
+      <div class="empty"></div>
+    </div>
       <h1 id="history_header" >History</h1>
    </div> 
       <div id="outerBoardHistory" > <label id="upcomingJobs" >Upcoming Jobs</label>
@@ -27,13 +29,34 @@
             <div id="deleteNodeHeader" class="jobNode">Delete</div>
           </div>
           <div id="jobEntries">
+            <!-- <div class="jobEntry">
+              <div id="dateNode" class="jobNode">24/7/22</div>
+              <div id="customer_name_history" class="jobNode">Alex's Electronics</div>
+              <div id="amount" class="jobNode">$50</div>
+              <div id="downloadNodeHistory" class="jobNode"><button id="deleteButton">Download</button></div>
+              <div id="deleteNode2" class="jobNode"><button id="deleteButton" onclick="deleteHistoryEntry(elem)">Remove</button></div>
+            </div>
             <div class="jobEntry">
               <div id="dateNode" class="jobNode">24/7/22</div>
               <div id="customer_name_history" class="jobNode">Alex's Electronics</div>
               <div id="amount" class="jobNode">$50</div>
               <div id="downloadNodeHistory" class="jobNode"><button id="deleteButton">Download</button></div>
-              <div id="deleteNode" class="jobNode"><button id="deleteButton" onclick="deleteHistoryEntry(elem)">Remove</button></div>
+              <div id="deleteNode2" class="jobNode"><button id="deleteButton" onclick="deleteHistoryEntry(elem)">Remove</button></div>
             </div>
+            <div class="jobEntry">
+              <div id="dateNode" class="jobNode">24/7/22</div>
+              <div id="customer_name_history" class="jobNode">Alex's Electronics</div>
+              <div id="amount" class="jobNode">$50</div>
+              <div id="downloadNodeHistory" class="jobNode"><button id="deleteButton">Download</button></div>
+              <div id="deleteNode2" class="jobNode"><button id="deleteButton" onclick="deleteHistoryEntry(elem)">Remove</button></div>
+            </div>
+            <div class="jobEntry">
+              <div id="dateNode" class="jobNode">24/7/22</div>
+              <div id="customer_name_history" class="jobNode">Alex's Electronics</div>
+              <div id="amount" class="jobNode">$50</div>
+              <div id="downloadNodeHistory" class="jobNode"><button id="deleteButton">Download</button></div>
+              <div id="deleteNode2" class="jobNode"><button id="deleteButton" onclick="deleteHistoryEntry(elem)">Remove</button></div>
+            </div> -->
             <!-- <div class="jobEntry">
               <div id="dateNode" class="jobNode">5/12/22</div>
               <div id="customer_name" class="jobNode">Jenny's Mechanic</div>
@@ -55,6 +78,8 @@
       <div id="invoices"></div>
     </div>
     <script src="scripts/history.js"></script>
+    <script>getPastJobs()</script>
+
   </body>
 
 </html>

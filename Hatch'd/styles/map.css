@@ -511,13 +511,6 @@ button:hover {
   width: 50%;
 }
 
-#downloadNodeHistory {
-  width: 10%;
-  height: 100%;
-  padding:0.25%;
-  padding-top: 0.83%;
-  padding-bottom: 0.83%;
-}
 
 #downloadNodeHistoryHeader{
   width: 10%;
@@ -541,6 +534,24 @@ button:hover {
   padding-top: 0.83%;
   padding-bottom: 0.83%;
 }
+
+
+#downloadNodeHistory {
+  width: 10%;
+  height: 100%;
+  padding:0.25%;
+  padding-top: 0.83%;
+  padding-bottom: 0.83;
+}
+
+#deleteNode2 {
+  width: 10%;
+  height: 100%;
+  padding:0.25%;
+  padding-top: 0.83%;
+  padding-bottom: 0.83%;
+}
+
 
 
 #deleteNodeHeader {

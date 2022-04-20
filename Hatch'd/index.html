@@ -296,10 +296,14 @@
           <!-- street address, postcode, city, country, -->
 
           <!-- <div id="lodged_popup">lodged </div> -->
-          <button type="button" id="regSubmit" onclick="register()">Register</button>
-        </form>
+          <button type="button" id="regSubmit" onclick="register()">Register</button><br><br>
+          <label id="alreadyLabel">Already have an account?</label><br>
+          <form action="login.html" >
+            <button id="goToLoginButton" >Login</button>
+          </form>
       <!-- </div> -->
     <script src="scripts/main.js"></script>
+    <script>function goToLogin() { window.location.replace("login.html"); }</script>
   </body>
 
 </html>

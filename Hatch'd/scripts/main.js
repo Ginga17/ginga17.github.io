@@ -132,6 +132,9 @@ function triggerPopup(id) {
 //   <select id="country
 
 function storeToken(token, user_id, storage_token) {
+  if(token == null) {
+    return;
+  }
 console.log("kksasMAP");
 sessionStorage.setItem('hatchdtoken', token);
 sessionStorage.setItem('user_id', user_id);
@@ -218,19 +221,10 @@ showCustomerCreation();
 }
 
 function login() {
-username = document.getElementById("email").value;
-password = document.getElementById("password").value;
-business_name = document.getElementById("business").value;
-street_address= document.getElementById("street").value;
-city = document.getElementById("city").value;
-// country = document.getElementById("country").value;
-countrySelect = document.getElementById("country");
-country = countrySelect.options[countrySelect.selectedIndex].value;
-
-postcode = document.getElementById("postcode").value;
-
-console.log("https://gk6qzzv9s6.execute-api.ap-southeast-2.amazonaws.com/hatchd/auth/register?username="+username+"&password="+password+"&business_name="+business_name+"&street_address="+street_address+"&city="+city+"&country="+country+"&postcode="+postcode)
-fetch("https://gk6qzzv9s6.execute-api.ap-southeast-2.amazonaws.com/hatchd/auth/register?username="+username+"&password="+password+"&business_name="+business_name+"&street_address="+street_address+"&city="+city+"&country="+country+"&postcode="+postcode, {
+  username = document.getElementById("email").value;
+  password = document.getElementById("password").value;
+  console.log("https://gk6qzzv9s6.execute-api.ap-southeast-2.amazonaws.com/hatchd/auth/login?username="+username+"&password="+password)
+  fetch("https://gk6qzzv9s6.execute-api.ap-southeast-2.amazonaws.com/hatchd/auth/login?username="+username+"&password="+password, {
           method: 'POST', // *GET, POST, PUT, DELETE, etc.
           mode: 'cors', // no-cors, *cors, same-origin
           cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
@@ -244,6 +238,7 @@ fetch("https://gk6qzzv9s6.execute-api.ap-southeast-2.amazonaws.com/hatchd/auth/r
       .then(response => response.json())
       // .then(data => token = data.token)
       .then(data=>storeToken(data.token, data.user_id, data.storageToken));
+
 }
 
 function displayFutureJobs(jobs) {
@@ -275,6 +270,7 @@ for (var i = 0; i < jobs.length; i++)
   delBut = document.createElement('button');
   delBut.id = "deleteButton";
   delBut.innerHTML = "Remove";
+  delBut.setAttribute( "onClick", "javascript: deleteEntry(this)" );
   deleteNode.appendChild(delBut);
 
   newEntry.appendChild(date);
@@ -302,6 +298,23 @@ fetch('https://gk6qzzv9s6.execute-api.ap-southeast-2.amazonaws.com/hatchd/future
   .then(response => response.json())
   .then(data => displayFutureJobs(data));
 }
+
+function getPastJobs() {
+  storageToken = sessionStorage.getItem('storage_token')
+  fetch('https://gk6qzzv9s6.execute-api.ap-southeast-2.amazonaws.com/hatchd/past_jobs?token=' + storageToken, {
+        method: 'GET', // *GET, POST, PUT, DELETE, etc.
+        mode: 'cors', // no-cors, *cors, same-origin
+        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'same-origin', // include, *same-origin, omit
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        redirect: 'follow', // manual, *follow, error
+        referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    })
+    .then(response => response.json())
+    .then(data => displayFutureJobs(data));
+  }
 
 
 function displayData(data) {
