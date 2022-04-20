@@ -4,26 +4,94 @@
     <meta charset="utf-8">
     <title>Data</title>
     <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
-    <link href="styles/style.css" rel="stylesheet" type="text/css">
+    <link href="styles/map.css" rel="stylesheet" type="text/css">
     <script src="scripts/map.js"></script>
     <script>getPostalAddress()</script>
   </head>
   <body>
     <div class="header">
-      <img id="logo" src="logo.png">
-
-      <p style="font-size: 30px"><i>Stats and Things.</i></p>
-      <button id="back" onclick="history.back()">Back</button>
-
+      <div id="headerBox">
+        <img src="back.png" id="back" width="50" height="50" onclick="history.back();">
+        <img src="moon.png" id="darkModeButt" onclick="toggleDarkMode();">
+      <!-- <input class="darkModeButt" onclick="toggleDarkMode()">
+        <img src="moon.png"></button> -->
+      <img id="logo" src="logo.png"  >
+      <div class="empty"></div>
     </div>
-      <h1 id="history_header" ><b><u>Data</b></u></h1>
-      <h2 id="heatmap" ><u>Location of Upcoming Customers</u></h2>
-    </div>
-    <div id="map"></div>
+    <p>Stats and things.</p>
+   </div class="center" id="mapBox"> 
+      <!-- <h1 id="history_header" ><b><u>Data</b></u></h1> -->
+      <h2 id="heatmap" >Locations of Upcoming Customers</h2>
+    <div id="map" class="center"></div>
+  </div>
+
     <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVOUEn3Tj_yvVCl8B-XBekY8H9sY6x4uY&callback=initMap&v=weekly"
     async
   ></script>
+  <script>
+    
+darkMode = false; 
+if(sessionStorage.getItem("darkmode") == "dark") {
+  if(document.getElementById("bird")){
+      document.getElementById("bird").src = "owl2.png";
+  }
+  if(document.getElementById("back")){
+    document.getElementById("back").src = "backDark.png";
+  }
+  document.getElementById("logo").src="logoDark.png"
+  document.getElementById("darkModeButt").src="sun.png"
+  darkMode=true;
+  document.body.classList.toggle("dark-mode");
+  document.documentElement.className = 'dark';
+}
+else {
+  if(document.getElementById("bird")){
+    document.getElementById("bird").src = "roostertrans.png";
+  }
+  if(document.getElementById("back")){
+    document.getElementById("back").src = "back.png";
+  }
+  document.getElementById("logo").src="logo.png"
+  document.getElementById("darkModeButt").src="moon.png"
+  document.documentElement.className = 'light';
+  darkMode = false;
+}
+
+
+function toggleDarkMode() {
+  if(darkMode == false) {
+    sessionStorage.setItem('darkmode', 'dark')
+    if(document.getElementById("bird")){
+      document.getElementById("bird").src = "owl2.png";
+    }
+    if(document.getElementById("back")){
+      document.getElementById("back").src = "backDark.png";
+    }
+    document.getElementById("logo").src="logoDark.png"
+    document.getElementById("darkModeButt").src="sun.png"
+
+    document.documentElement.className = 'dark';
+    darkMode=true;
+  }
+  else {
+    sessionStorage.setItem('darkmode', 'light')
+    darkMode=false;
+    if(document.getElementById("bird")){
+      document.getElementById("bird").src = "roostertrans.png";
+    }
+    if(document.getElementById("back")){
+      document.getElementById("back").src = "back.png";
+    }
+    document.getElementById("logo").src="logo.png"
+    document.getElementById("darkModeButt").src="moon.png"
+    document.documentElement.className = 'light';
+  }
+  document.body.classList.toggle("dark-mode");
+
+}
+
+  </script>
 
   </body>
 

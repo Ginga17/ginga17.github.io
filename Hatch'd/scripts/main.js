@@ -334,6 +334,9 @@ if(sessionStorage.getItem("darkmode") == "dark") {
   if(document.getElementById("bird")){
       document.getElementById("bird").src = "owl2.png";
   }
+  if(document.getElementById("back")){
+    document.getElementById("back").src = "backDark.png";
+  }
   document.getElementById("logo").src="logoDark.png"
   document.getElementById("darkModeButt").src="sun.png"
   darkMode=true;
@@ -342,7 +345,10 @@ if(sessionStorage.getItem("darkmode") == "dark") {
 }
 else {
   if(document.getElementById("bird")){
-      document.getElementById("bird").src = "roostertrans.png";
+    document.getElementById("bird").src = "roostertrans.png";
+  }
+  if(document.getElementById("back")){
+    document.getElementById("back").src = "back.png";
   }
   document.getElementById("logo").src="logo.png"
   document.getElementById("darkModeButt").src="moon.png"
@@ -350,28 +356,36 @@ else {
   darkMode = false;
 }
 
+
 function toggleDarkMode() {
-if(darkMode == false) {
-  sessionStorage.setItem('darkmode', 'dark')
-  if(document.getElementById("bird")){
-    document.getElementById("bird").src = "owl2.png";
+  if(darkMode == false) {
+    sessionStorage.setItem('darkmode', 'dark')
+    if(document.getElementById("bird")){
+      document.getElementById("bird").src = "owl2.png";
+    }
+    if(document.getElementById("back")){
+      document.getElementById("back").src = "backDark.png";
+    }
+    document.getElementById("logo").src="logoDark.png"
+    document.getElementById("darkModeButt").src="sun.png"
+
+    document.documentElement.className = 'dark';
+    darkMode=true;
   }
-  document.getElementById("logo").src="logoDark.png"
-  document.getElementById("darkModeButt").src="sun.png"
-  document.documentElement.className = 'dark';
-  darkMode=true;
-}
-else {
-  sessionStorage.setItem('darkmode', 'light')
-  darkMode=false;
-  if(document.getElementById("bird")){
-    document.getElementById("bird").src = "roostertrans.png";
+  else {
+    sessionStorage.setItem('darkmode', 'light')
+    darkMode=false;
+    if(document.getElementById("bird")){
+      document.getElementById("bird").src = "roostertrans.png";
+    }
+    if(document.getElementById("back")){
+      document.getElementById("back").src = "back.png";
+    }
+    document.getElementById("logo").src="logo.png"
+    document.getElementById("darkModeButt").src="moon.png"
+    document.documentElement.className = 'light';
   }
-  document.getElementById("logo").src="logo.png"
-  document.getElementById("darkModeButt").src="moon.png"
-  document.documentElement.className = 'light';
-}
-document.body.classList.toggle("dark-mode");
+  document.body.classList.toggle("dark-mode");
 
 }
 
