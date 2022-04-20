@@ -137,3 +137,10 @@ if(sessionStorage.getItem("darkmode") == "dark") {
     document.body.classList.toggle("dark-mode");
 
   }
+
+
+  
+  function deleteHistoryEntry(elem) {
+    $(elem).parent('div').remove();
+  }
+

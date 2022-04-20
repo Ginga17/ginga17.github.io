@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Create Job</title>
+    <title>New Job</title>
     <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
     <link href="styles/style.css" rel="stylesheet" type="text/css">
   </head>
@@ -15,24 +15,27 @@
       <img id="logo" src="logo.png"  >
       <div class="empty"></div>
     </div>
-      <p>Lodge.</p>
+      <p>Lodge a new job.</p>
       
     </div>
       <img id="bird" src="roostertrans.png" align="left" id = "rooster">
       <div id="logbox" class="loginBox">
-        <h3 id="signInHeader">Lodge Job</h3>
-        <label for="desc">Service Description:</label>
-        <input type="text" id="desc" name="desc"><br><br>
-        <label for="cost">Cost ($):</label>
-        <input type="number" id="cost" name="cost"><br><br>
-        <label>Customers:</label>
-        <select name="customers" id="customersDropDown">
-          <option value="Alex's Electronics">Alex's Electronics</option>
-          <option value="Jenny's Autorepair">Jenny's Autorepair</option>
-          <option value="Dan Murphy's">Alex's Electronics</option>
-        </select>
-        <button class="button" type="button" id="create_customer" onclick="showCustomerCreation()" >New Customer</button> 
-
+        <form id="logForm">
+          <h3 id="lodgeHeader">Lodge Job</h3>
+          <label for="desc">Service Description:</label>
+          <input type="text" id="descLodge" class="signInTextBox" name="desc"><br><br>
+          <label for="start">Due date:</label>
+          <input type="date" id="dueDate" class="signInTextBox" name="trip-start"><br><br>
+          <label for="cost">Cost ($):</label>
+          <input type="number" id="cost" class="signInTextBox" name="cost"><br><br>
+          <label>Customer:</label>
+          <select name="customers" id="customersDropDown">
+            <option value="Alex's Electronics">Alex's Electronics</option>
+            <option value="Jenny's Autorepair">Jenny's Autorepair</option>
+            <option value="Dan Murphy's">Alex's Electronics</option>
+          </select>
+          <button class="button" type="button" id="create_customer" onclick="showCustomerCreation()" >Add Customer</button> 
+      </form>
         <div>
         
           <!-- <input list="customers"/></label>
@@ -314,9 +317,7 @@
             </div>
           </div>
         </div>
-        <div id="lodged_popup">lodged
-
-          </div>
+        <div id="lodged_popup">lodged </div>
         <button type="button" id="submit" onclick="lodge()">Lodge</button>
       </form>
       </div>

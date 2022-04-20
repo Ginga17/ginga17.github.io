@@ -29,7 +29,7 @@
               <div id="deleteNodeHeader" class="jobNode">Delete</div>
             </div>
             <div id="jobEntries">
-              <div class="jobEntry">
+              <!-- <div class="jobEntry">
                 <div id="dateNode" class="jobNode">24/7/22</div>
                 <div id="customer_name" class="jobNode">Alex's Electronics</div>
                 <div id="amount" class="jobNode">$50</div>
@@ -40,7 +40,6 @@
                 <div id="customer_name" class="jobNode">Jenny's Mechanic</div>
                 <div id="amount" class="jobNode">$2200</div>
                 <div id="deleteNode" class="jobNode"><button id="deleteButton">Remove</button></div>
-
               </div>
               <div class="jobEntry">
                 <div id="dateNode" class="jobNode">13/12/22</div>
@@ -48,24 +47,25 @@
                 <div id="amount" class="jobNode">$400</div>
                 <div id="deleteNode" class="jobNode"><button id="deleteButton">Remove</button></div>
 
-              </div>
+              </div> -->
             </div>
               <div id="createJobButton" class="jobNode" onclick="location.href='lodgeInvoice.html';">Create New Job</div>
           </div>
         </div>
         <div id = "buttons" style="font-family:Courier">
-          <form action="lodgeInvoice.html" class="buttonFormHome">
-          <button id="butt" class="homePageButton" style="width:350px;height:95px;">Lodge Invoice</button>
+          <form action="map.html" class="buttonFormHome">
+          <button id="butt" class="homePageButton" style="width:350px;height:95px;">View Map</button>
           </form>
           <form action="history.html" class="buttonFormHome">
             <button style="width:350px;height:95px;" class="homePageButton">View History</button>
           </form>
-          <form action="lodgeInvoice.html" class="buttonFormHome">
+          <form action="data.html" class="buttonFormHome">
             <button style="width:350px;height:95px;" class="homePageButton">Data</button>
           </form>
         </div>
       </div>
     <script src="scripts/main.js"></script>
+    <script>getFutureJobs()</script>
   </body>
 
 </html>

@@ -20,22 +20,22 @@
    </div> 
       <img id="bird" src="roostertrans.png"  id = "rooster">
       <!-- <div id="registerBox"> -->
-        <form id="invoice_form" action="" text-a method="post">
+        <form id="register_form" action="" text-a method="post">
           <label for="email">Your email:</label>
-          <input type="Email" id="email" name="email" width="150px"><br>
+          <input type="Email" id="email" class="registerInput" name="email" width="150px"><br>
           <label for="password"> Password:</label>
-          <input type="password" id="password" name="password"><br>
+          <input type="password" id="password" class="registerInput" name="password"><br>
           <label for="business"> Your business name:</label>
-          <input type="text" id="business" name="business"><br>
-          <div>
+          <input type="text" id="business" class="registerInput" name="business"><br>
+          <!-- <div> -->
             <label for="street"> Street:</label>
-            <input type="text" id="street" name="street"><br>
+            <input type="text" id="street" class="registerInput" name="street"><br>
             <label for="city"> City:</label>
-            <input type="text" id="city" name="city"><br>
+            <input type="text" id="city" class="registerInput" name="city"><br>
             <label for="address"> Postcode:</label>
-            <input type="text" pattern="[0-9]{4}" id="postcode" name="postcode"><br>
+            <input type="text" pattern="[0-9]{4}" class="registerInput" id="postcode" name="postcode"><br>
             <label for="country"> Country:</label>
-            <select id="country" width="10px" name="country">
+            <select id="country" class="registerInput" width="15px" name="country">
               <option>select country</option>
               <option value="AF">Afghanistan</option>
               <option value="AX">Aland Islands</option>
@@ -290,13 +290,13 @@
               <option value="ZM">Zambia</option>
               <option value="ZW">Zimbabwe</option>
           </select><br><br>
-          </div>
+          <!-- </div> -->
 
           
           <!-- street address, postcode, city, country, -->
 
           <!-- <div id="lodged_popup">lodged </div> -->
-          <button type="button" id="submit" onclick="register()">Register</button>
+          <button type="button" id="regSubmit" onclick="register()">Register</button>
         </form>
       <!-- </div> -->
     <script src="scripts/main.js"></script>

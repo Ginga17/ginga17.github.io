@@ -7,18 +7,24 @@
     <link href="styles/style.css" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <div class="header">
-      <img id="logo" src="logo.png"  >
-      <p id="history_header">Stats and Things.</p>
-      <button id="back" onclick="history.back()">Back</button>
-
-    </div>
-      <h1 id="history_header" >Data</h1>
-      <h1 id="month_rev" >This Month's Revenue: $XXX</h1>
-      <h1 id="tax" >Tax Owed: $YYY</h1>
-      <img src="heatmap.png"></img>
-    </div>
-    <script src="scripts/history.js"></script>
+      <div class="header">
+        <div id="headerBox">
+          <img src="moon.png" id="darkModeButt" onclick="toggleDarkMode()">
+          <img id="logo" src="logo.png"  >
+          <div class="empty"></div>
+        </div>
+      <p>Stats and things.</p>
+     </div> 
+      <img id="bird" src="roostertrans.png" align="left" id = "rooster">
+      <div id="numbersBox">
+          <h4 id="totInc">Total Income: </h4>
+          <h4 id="avgInc">Average monthly income: </h4>
+          <h4 id="estYrlyInc">Estimate yearly income: </h4>
+          <h4 id="estPAYGTax">Estimate PAYG tax: </h4>
+          <h4 id="estYrlyTaxPayable">Estimate yearly tax payable: </h4>
+      </div>
+    <script src="scripts/main.js"></script>
+    <script>getData()</script>
   </body>
 
 </html>

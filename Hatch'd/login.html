@@ -10,11 +10,9 @@
       <div class="header">
         <div id="headerBox">
           <img src="moon.png" id="darkModeButt" onclick="toggleDarkMode()">
-        <!-- <input class="darkModeButt" onclick="toggleDarkMode()">
-          <img src="moon.png"></button> -->
-        <img id="logo" src="logo.png"  >
-        <div class="empty"></div>
-      </div>
+          <img id="logo" src="logo.png"  >
+          <div class="empty"></div>
+        </div>
       <p>For freelance.</p>
      </div> 
       <img id="bird" src="roostertrans.png" align="left" id = "rooster">
@@ -25,12 +23,13 @@
           <input type="Email" id="email" class="loginTextbox" name="email">
           <label for="password" class="leftAlignText"> Password:</label>
           <input type="password" id="password" class="loginTextbox" name="password"><br>
-          <button type="submit" id="loginButton">Login</button>
+          <button type="submit" id="loginButton">Login</button><br><br>
+          <label id="dontHaveAcct">Don't have an account?</label><br>
+          <form action="register.html">
+            <button id="create_account">Create Account</button>
+          </form>
         </form>
-        <label id="dontHaveAcct">Don't have an account?</label>
-        <form action="register.html">
-          <button id="create_account">Create Account</button>
-        </form>
+        
       </div>
     <script src="scripts/main.js"></script>
   </body>
