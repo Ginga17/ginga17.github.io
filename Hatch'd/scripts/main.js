@@ -157,7 +157,7 @@ city = document.getElementById("city").value;
 countrySelect = document.getElementById("country");
 country = countrySelect.options[countrySelect.selectedIndex].value;
 
-postcode = document.getElementById("postcode").value;
+postcode = document.getElementById("postcodeFront").value;
 
 console.log("https://gk6qzzv9s6.execute-api.ap-southeast-2.amazonaws.com/hatchd/auth/register?username="+username+"&password="+password+"&business_name="+business_name+"&street_address="+street_address+"&city="+city+"&country="+country+"&postcode="+postcode)
 fetch("https://gk6qzzv9s6.execute-api.ap-southeast-2.amazonaws.com/hatchd/auth/register?username="+username+"&password="+password+"&business_name="+business_name+"&street_address="+street_address+"&city="+city+"&country="+country+"&postcode="+postcode, {
