@@ -25,7 +25,7 @@
             <div id="columnHeaders" class="jobEntry">
               <div id="dateNode" class="jobNode">Date</div>
               <div id="customer_name" class="jobNode">Customer</div>
-              <div id="amount" class="jobNode">Amount</div>
+              <div id="amount" class="jobNode">Amount($)</div>
               <div id="deleteNodeHeader" class="jobNode">Delete</div>
             </div>
             <div id="jobEntries">
@@ -68,6 +68,8 @@
     <script src="scripts/main.js"></script>
     <script>
       window.onload = getFutureJobs();
+      console.log("token is " + sessionStorage.getItem("hatchdtoken"));
+      console.log("storage token is " + sessionStorage.getItem("storage_token"));
     function deleteEntry(button) {
       button.parentElement.parentElement.remove()
     }
