@@ -223,6 +223,12 @@ showCustomerCreation();
 
 }
 
+function logout() {
+  sessionStorage.clear();
+  window.location.replace("login.html");
+
+}
+
 function login() {
   username = document.getElementById("email").value;
   password = document.getElementById("password").value;

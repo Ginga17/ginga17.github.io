@@ -31,20 +31,35 @@ h1 {
 }
 
 #datap{
-  margin-left: 11%;
+  margin-left: 9%;
 }
 
 #headerBox {
   display: flex;
   align-items: flex-start;
   margin: 0%;
-  margin-left: 20%;
+  margin-top:1%;
+  margin-left: 15%;
   justify-content: center;
 }
 
-.darkModeButt, .empty {
-  flex:0.2;
+#headerBox2 {
+  display: flex;
+  align-items: flex-start;
+  margin: 0%;
+  margin-top:1%;
+  margin-left: 8%;
+  justify-content: center;
+}
+
+.darkModeButt, .logoutButton, .empty {
+  flex:0.1;
 } 
+
+.logoutButton {
+  padding-bottom: 0.5%;
+}
+
 label {
   display: inline-block;
   width: 200px;
@@ -59,6 +74,10 @@ label {
   /* margin-top: 4%;
   margin-bottom: 4%; */
   margin-left: 4%;
+}
+
+#mapp {
+  margin-right: 5%;
 }
 
 .signInTextBox {

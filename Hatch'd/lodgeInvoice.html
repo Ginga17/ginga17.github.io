@@ -9,13 +9,13 @@
   <body>
     <div class="header">
       <div id="headerBox">
-        <img src="back.png" id="back" width="50" height="50" onclick="history.back();">
-        <img src="moon.png" id="darkModeButt" onclick="toggleDarkMode();">
-      <!-- <input class="darkModeButt" onclick="toggleDarkMode()">
-        <img src="moon.png"></button> -->
-      <img id="logo" src="logo.png"  >
-      <div class="empty"></div>
-    </div>
+      <img src="back.png" id="back" width="50" height="50" onclick="history.back();">
+      <img src="moon.png" id="darkModeButt" onclick="toggleDarkMode();">
+        <img id="logo" src="logo.png"  >
+        <button class="logoutButton" onclick="logout()">Logout</button>
+
+      </div>
+   </div> 
       <p>Lodge a new job.</p>
       
     </div>
@@ -31,9 +31,6 @@
           <input type="number" id="cost" class="signInTextBox" name="cost"><br><br>
           <label>Customer:</label>
           <select name="customers" id="customersDropDown">
-            <!-- <option value="Alex's Electronics">Alex's Electronics</option>
-            <option value="Jenny's Autorepair">Jenny's Autorepair</option>
-            <option value="Dan Murphy's">Alex's Electronics</option> -->
           </select>
           <button class="button" type="button" id="create_customer" onclick="showCustomerCreation()" >Add Customer</button> 
       </form>
